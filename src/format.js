@@ -40,7 +40,7 @@ angular.module('angularPayments')
       upperLength = 16;
 
       // Catch delete, tab, backspace, arrows, etc..
-      if (e.which === 8 || e.which === 0) {
+      if (e.which === 8 || e.which === 0 || e.which === 13) {
         return;
       }
 
@@ -84,7 +84,7 @@ angular.module('angularPayments')
       digit = String.fromCharCode(e.which);
       
       // Catch delete, tab, backspace, arrows, etc..
-      if (e.which === 8 || e.which === 0) {
+      if (e.which === 8 || e.which === 0 || e.which === 13) {
         return;
       }
 
@@ -199,7 +199,7 @@ angular.module('angularPayments')
     digit = String.fromCharCode(e.which);
 
     // Catch delete, tab, backspace, arrows, etc..
-    if (e.which === 8 || e.which === 0) {
+    if (e.which === 8 || e.which === 0 || e.which === 13) {
       return;
     }
 
@@ -234,8 +234,13 @@ angular.module('angularPayments')
     
     $target = angular.element(e.currentTarget);
     digit = String.fromCharCode(e.which);
-    
-    if (isInvalidKey(e)) {
+
+      // Catch enter button
+      if (e.which === 13) {
+          return;
+      }
+
+      if (isInvalidKey(e)) {
       e.preventDefault();
       return;
     }
@@ -257,8 +262,13 @@ angular.module('angularPayments')
     var $target, digit, val;
     
     digit = String.fromCharCode(e.which);
-    
-    if (isInvalidKey(e)) {
+
+      // Catch enter button
+      if (e.which === 13) {
+          return;
+      }
+
+      if (isInvalidKey(e)) {
       e.preventDefault();
       return;
     }
@@ -281,7 +291,7 @@ angular.module('angularPayments')
     var $target, digit, val;
     
     digit = String.fromCharCode(e.which);
-    
+
     if (isInvalidKey(e)) {
       return;
     }
